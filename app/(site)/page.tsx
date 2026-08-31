@@ -3,8 +3,10 @@ import { createClient } from '@/lib/supabase/server'
 import { PageReveal } from '@/components/motion/primitives'
 import { Hero } from '@/components/home/hero'
 import { FeaturedVehicles } from '@/components/home/featured-vehicles'
+import { WhyUsSection } from '@/components/home/why-us-section'
 import { HowItWorksSection } from '@/components/home/how-it-works-section'
 import { LocationsSection } from '@/components/home/locations-section'
+import { TestimonialsSection } from '@/components/home/testimonials-section'
 import { PremiumCta } from '@/components/home/premium-cta'
 
 export default async function Home() {
@@ -40,12 +42,15 @@ export default async function Home() {
           <FeaturedVehicles cars={featured ?? []} />
         </div>
 
+        <WhyUsSection />
+
         {/* Warm soft band holds the floating "how it works" panel. */}
         <div className="surface-warm">
           <HowItWorksSection />
         </div>
 
         <LocationsSection />
+        <TestimonialsSection />
         <PremiumCta signedIn={Boolean(user)} />
       </PageReveal>
     </>
