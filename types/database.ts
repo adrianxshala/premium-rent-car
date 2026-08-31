@@ -105,6 +105,50 @@ export type Database = {
           },
         ]
       }
+      car_blocks: {
+        Row: {
+          car_id: string
+          created_at: string
+          end_date: string
+          id: string
+          kind: Database['public']['Enums']['car_block_kind']
+          note: string | null
+          reason: string | null
+          start_date: string
+          updated_at: string
+        }
+        Insert: {
+          car_id: string
+          created_at?: string
+          end_date: string
+          id?: string
+          kind: Database['public']['Enums']['car_block_kind']
+          note?: string | null
+          reason?: string | null
+          start_date: string
+          updated_at?: string
+        }
+        Update: {
+          car_id?: string
+          created_at?: string
+          end_date?: string
+          id?: string
+          kind?: Database['public']['Enums']['car_block_kind']
+          note?: string | null
+          reason?: string | null
+          start_date?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'car_blocks_car_id_fkey'
+            columns: ['car_id']
+            isOneToOne: false
+            referencedRelation: 'cars'
+            referencedColumns: ['id']
+          },
+        ]
+      }
       cars: {
         Row: {
           category: Database['public']['Enums']['car_category']
@@ -199,6 +243,7 @@ export type Database = {
     }
     Enums: {
       booking_status: 'pending' | 'confirmed' | 'cancelled' | 'completed'
+      car_block_kind: 'maintenance' | 'unavailable'
       car_category: 'suv' | 'sedan' | 'economy'
       car_status: 'available' | 'maintenance' | 'retired'
       fuel_type: 'petrol' | 'diesel' | 'hybrid' | 'electric'
@@ -335,6 +380,7 @@ export const Constants = {
   public: {
     Enums: {
       booking_status: ['pending', 'confirmed', 'cancelled', 'completed'],
+      car_block_kind: ['maintenance', 'unavailable'],
       car_category: ['suv', 'sedan', 'economy'],
       car_status: ['available', 'maintenance', 'retired'],
       fuel_type: ['petrol', 'diesel', 'hybrid', 'electric'],
@@ -348,3 +394,4 @@ export const Constants = {
 export type Profile = Tables<'profiles'>
 export type Car = Tables<'cars'>
 export type Booking = Tables<'bookings'>
+export type CarBlock = Tables<'car_blocks'>

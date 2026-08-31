@@ -175,7 +175,11 @@ export default async function AdminPage() {
         />
 
         {bookings.length > 0 ? (
-          <StaggerGroup className="mt-6 flex flex-col gap-3" stagger={0.07}>
+          <StaggerGroup
+            className="mt-6 flex flex-col gap-3"
+            stagger={0.07}
+            inView={false}
+          >
             {bookings.map((b) => (
               <StaggerItem key={b.id} lift={-2}>
                 <BookingRow booking={b} />
@@ -183,7 +187,7 @@ export default async function AdminPage() {
             ))}
           </StaggerGroup>
         ) : (
-          <Reveal className="mt-6">
+          <Reveal className="mt-6" inView={false}>
             <div className="panel flex flex-col items-center gap-4 px-6 py-14 text-center">
               <span className="bg-secondary text-muted-foreground flex size-14 items-center justify-center rounded-full">
                 <CalendarClock className="size-6" aria-hidden />
@@ -199,7 +203,7 @@ export default async function AdminPage() {
       {/* Fleet status */}
       <section className="mt-12">
         <SectionHead eyebrow="Flota" title="Gjendja e makinave" />
-        <Reveal className="mt-6">
+        <Reveal className="mt-6" inView={false}>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <FleetCard status="available" count={fleetCounts.available ?? 0} />
             <FleetCard

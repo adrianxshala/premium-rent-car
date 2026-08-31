@@ -70,6 +70,12 @@ type RevealProps = React.ComponentProps<typeof motion.div> & {
   delay?: number
   duration?: number
   amount?: number
+  /**
+   * Trigger when it scrolls into view (default). Set `false` to play once on
+   * mount instead — use this for content that is (or may be) already in the
+   * viewport on load, like a dashboard, so it isn't left hidden until a scroll.
+   */
+  inView?: boolean
 }
 
 export function Reveal({
@@ -79,15 +85,21 @@ export function Reveal({
   delay = 0,
   duration = 0.6,
   amount = 0.2,
+  inView = true,
   ...props
 }: RevealProps) {
   const reduce = useReducedMotion()
+  const trigger = inView
+    ? {
+        whileInView: reduce ? undefined : { opacity: 1, y: 0 },
+        viewport: { once: true, amount },
+      }
+    : { animate: reduce ? undefined : { opacity: 1, y: 0 } }
   return (
     <motion.div
       className={className}
       initial={reduce ? false : { opacity: 0, y }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount }}
+      {...trigger}
       transition={{ duration, ease: EASE_OUT, delay }}
       {...props}
     >

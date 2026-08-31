@@ -107,7 +107,7 @@ export default async function AdminBookingsPage({
       <BookingsFilter status={status} q={q} />
 
       {bookings.length > 0 ? (
-        <Reveal y={6} duration={0.4} className="flex flex-col gap-3">
+        <Reveal y={6} duration={0.4} className="flex flex-col gap-3" inView={false}>
           {bookings.map((b) => (
             <div
               key={b.id}
@@ -154,7 +154,7 @@ export default async function AdminBookingsPage({
           ))}
         </Reveal>
       ) : (
-        <Reveal>
+        <Reveal inView={false}>
           <div className="panel flex flex-col items-center gap-4 px-6 py-14 text-center">
             <span className="bg-secondary text-muted-foreground flex size-14 items-center justify-center rounded-full">
               {status || term ? (

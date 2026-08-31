@@ -2,12 +2,13 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { CalendarClock, CarFront, LayoutGrid } from 'lucide-react'
+import { CalendarClock, CalendarRange, CarFront, LayoutGrid } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
 const ITEMS = [
   { href: '/admin', label: 'Përmbledhje', icon: LayoutGrid, exact: true },
+  { href: '/admin/calendar', label: 'Kalendari', icon: CalendarRange },
   { href: '/admin/cars', label: 'Makinat', icon: CarFront },
   { href: '/admin/bookings', label: 'Rezervimet', icon: CalendarClock },
 ]

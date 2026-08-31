@@ -250,5 +250,6 @@ export async function updateBookingStatus(formData: FormData): Promise<void> {
   await supabase.from('bookings').update({ status: to }).eq('id', bookingId)
 
   revalidatePath('/admin/bookings')
+  revalidatePath('/admin/calendar')
   revalidatePath('/admin')
 }
