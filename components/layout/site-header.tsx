@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
@@ -44,16 +43,14 @@ export function SiteHeader({
           href="/"
           className="flex items-center gap-2.5 pl-1 font-semibold tracking-tight"
         >
-          <Image
-            src="/Logo.png"
-            alt="Premium Rent Car"
-            width={40}
-            height={40}
-            priority
-            className="size-9 rounded-full sm:size-10"
-          />
+          <span
+            aria-hidden
+            className="bg-foreground text-background flex size-9 items-center justify-center rounded-full text-lg font-semibold sm:size-10"
+          >
+            L
+          </span>
           <span className="text-base">
-            Premium<span className="text-muted-foreground">RentCar</span>
+            RentCar <span className="text-muted-foreground">Leo</span>
           </span>
         </Link>
         <nav className="hidden items-center gap-1.5 sm:flex">

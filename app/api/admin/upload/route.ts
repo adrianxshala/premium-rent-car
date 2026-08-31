@@ -42,6 +42,18 @@ export const POST = withGuard(async (request: Request) => {
     .upload(key, file, { contentType: file.type, upsert: true })
 
   if (error) {
+    // Surface the real storage error object server-side — the generic client
+    // message hides root causes (bucket missing, storage schema mid-migration
+    // returning 5xx, quota / read-only DB). Never return raw errors to clients.
+    console.error('[storage:upload] failed', {
+      bucket: BUCKET,
+      key,
+      contentType: file.type,
+      size: file.size,
+      name: error.name,
+      message: error.message,
+      cause: (error as { cause?: unknown }).cause,
+    })
     return Response.json(
       {
         error:

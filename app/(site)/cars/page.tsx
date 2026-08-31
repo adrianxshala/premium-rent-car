@@ -14,7 +14,7 @@ import {
 } from '@/components/motion/primitives'
 
 export const metadata = {
-  title: 'Makinat | Premium Rent Car',
+  title: 'Makinat | RentCar Leo',
   description: 'Zgjidh makinën dhe datat e qirasë.',
 }
 

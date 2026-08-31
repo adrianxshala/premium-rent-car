@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function AuthLayout({
@@ -21,16 +20,14 @@ export default function AuthLayout({
         href="/"
         className="flex items-center gap-2.5 font-semibold tracking-tight"
       >
-        <Image
-          src="/Logo.png"
-          alt="Premium Rent Car"
-          width={40}
-          height={40}
-          priority
-          className="size-10 rounded-full"
-        />
+        <span
+          aria-hidden
+          className="bg-foreground text-background flex size-10 items-center justify-center rounded-full text-lg font-semibold"
+        >
+          L
+        </span>
         <span className="text-lg">
-          Premium<span className="text-muted-foreground">RentCar</span>
+          RentCar <span className="text-muted-foreground">Leo</span>
         </span>
       </Link>
 

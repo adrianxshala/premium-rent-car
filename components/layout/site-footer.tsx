@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, MessageCircle } from 'lucide-react'
 
@@ -7,8 +6,8 @@ import { MapPin, MessageCircle } from 'lucide-react'
  * sm+: a left-aligned four-column layout.
  * ──────────────────────────────────────────────────────────────────────── */
 
-/** WhatsApp click-to-chat link for +383 43 838776 (digits only, no spaces). */
-const WHATSAPP_URL = 'https://wa.me/38343838776'
+/** WhatsApp click-to-chat link for +383 49 624 299 (digits only, no spaces). */
+const WHATSAPP_URL = 'https://wa.me/38349624299'
 
 export function SiteFooter() {
   return (
@@ -20,14 +19,13 @@ export function SiteFooter() {
             href="/"
             className="flex items-center gap-2.5 font-semibold tracking-tight"
           >
-            <Image
-              src="/Logo.png"
-              alt="Premium Rent Car"
-              width={32}
-              height={32}
-              className="size-8 rounded-full"
-            />
-            Premium<span className="text-muted-foreground">RentCar</span>
+            <span
+              aria-hidden
+              className="bg-foreground text-background flex size-8 items-center justify-center rounded-full text-sm font-semibold"
+            >
+              L
+            </span>
+            RentCar <span className="text-muted-foreground">Leo</span>
           </Link>
           <p className="text-muted-foreground max-w-xs text-sm text-balance">
             Vetura premium për çdo udhëtim — rezervo online, shpejt e pa
@@ -45,7 +43,7 @@ export function SiteFooter() {
             className="shadow-soft inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-600"
           >
             <MessageCircle className="size-4 shrink-0" aria-hidden />
-            +383 43 838776
+            +383 49 624 299
           </a>
         </div>
 
@@ -55,11 +53,7 @@ export function SiteFooter() {
           <ul className="text-muted-foreground flex flex-col gap-3 text-sm">
             <li className="flex items-start justify-center gap-2 text-left sm:justify-start">
               <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden />
-              Aeroporti Ndërkombëtar i Prishtinës “Adem Jashari”
-            </li>
-            <li className="flex items-start justify-center gap-2 text-left sm:justify-start">
-              <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden />
-              Shirokë, Suharekë
+              Rrugë Brigada 123, Suharekë 23000
             </li>
           </ul>
         </div>
@@ -89,7 +83,7 @@ export function SiteFooter() {
       </div>
 
       <div className="text-muted-foreground mt-10 flex flex-col items-center gap-3 border-t border-black/[0.06] pt-6 text-sm sm:flex-row sm:justify-between">
-        <p>© 2026 PremiumRentCar</p>
+        <p>© 2026 RentCar Leo</p>
 
         <div className="flex items-center gap-2.5">
           <span>

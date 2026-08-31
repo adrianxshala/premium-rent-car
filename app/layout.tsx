@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'RentFlow — Premium Rent Car',
+  title: 'RentCar Leo',
   description: 'Rezervo makinën tënde online — shpejt, thjeshtë, i sigurt.',
 }
 

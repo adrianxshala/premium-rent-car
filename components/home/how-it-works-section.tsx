@@ -1,6 +1,6 @@
 'use client'
 
-import { Car, CreditCard, KeyRound } from 'lucide-react'
+import { Car, ClipboardList, KeyRound } from 'lucide-react'
 
 import {
   Reveal,
@@ -16,9 +16,9 @@ const STEPS = [
     desc: 'Shfleto flotën dhe kontrollo datat e lira në kalendar.',
   },
   {
-    icon: <CreditCard className="size-5" aria-hidden />,
-    title: 'Paguaj kaparin',
-    desc: 'Konfirmo me një kapar të vogël përmes pagesës së sigurt.',
+    icon: <ClipboardList className="size-5" aria-hidden />,
+    title: 'Plotëso të dhënat',
+    desc: 'Jep të dhënat e rezervimit dhe konfirmo detajet e udhëtimit.',
   },
   {
     icon: <KeyRound className="size-5" aria-hidden />,

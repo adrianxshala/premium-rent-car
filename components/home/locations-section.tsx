@@ -11,10 +11,9 @@ import { SectionHead } from '@/components/home/section-head'
 
 const LOCATIONS = [
   {
-    city: 'Aeroporti Ndërkombëtar i Prishtinës',
-    note: '“Adem Jashari” — marrje në terminal',
+    city: 'Rrugë Brigada 123, Suharekë 23000',
+    note: 'Zyra jonë',
   },
-  { city: 'Shirokë, Suharekë', note: 'Zyra jonë' },
 ] as const
 
 export function LocationsSection() {

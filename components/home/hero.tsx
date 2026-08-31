@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useReducedMotion, type Variants } from 'motion/react'
-import { KeyRound, ShieldCheck } from 'lucide-react'
+import { KeyRound } from 'lucide-react'
 
 import heroCar from '@/public/hero-car.jpg'
+import heroCarMobile from '@/public/hero-car-mobile.jpg'
 import { BookingWidget } from '@/components/home/booking-widget'
-import { CountUp, EASE_OUT } from '@/components/motion/primitives'
+import { EASE_OUT } from '@/components/motion/primitives'
 
 const container: Variants = {
   hidden: {},
@@ -61,18 +62,19 @@ export function Hero({ signedIn }: { signedIn: boolean }) {
         <div className="hero-grid absolute inset-0 hidden lg:block" />
       </div>
 
-      {/* Mobile: the photo becomes the full-bleed hero backdrop. It extends up
-          past the section top (-top-24) so it sits *behind the floating navbar*
-          too — no white gap above it. A layered scrim keeps the headline legible
-          at the top, then dissolves into the page color below so the booking card
-          and trust bar stay perfectly clean. Desktop renders the framed car on
-          the right instead. */}
+      {/* Mobile: a dedicated portrait photo becomes the full-bleed hero backdrop
+          (the desktop AMG shot is landscape and crops poorly on a tall screen).
+          It extends up past the section top (-top-24) so it sits *behind the
+          floating navbar* too — no white gap above it. The composition places
+          open sky at the top (headline) and dark asphalt at the bottom (booking
+          card), so a layered scrim keeps the headline legible then dissolves into
+          the page color below. Desktop renders the framed AMG on the right. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-24 bottom-0 z-0 overflow-hidden lg:hidden"
       >
         <Image
-          src={heroCar}
+          src={heroCarMobile}
           alt=""
           fill
           priority
@@ -117,17 +119,6 @@ export function Hero({ signedIn }: { signedIn: boolean }) {
             className="mt-10 flex justify-center lg:justify-start"
           >
             <div className="text-muted-foreground inline-flex flex-wrap items-center justify-center gap-x-5 gap-y-3 rounded-2xl bg-white/55 px-5 py-3 text-sm ring-1 ring-black/[0.04] backdrop-blur-md">
-              <Stat
-                icon={<ShieldCheck className="size-[1.05rem]" aria-hidden />}
-              >
-                <CountUp
-                  value={100}
-                  suffix="%"
-                  className="text-foreground font-semibold"
-                />{' '}
-                pagesa të sigurta
-              </Stat>
-              <Separator />
               <Stat icon={<KeyRound className="size-[1.05rem]" aria-hidden />}>
                 <span className="text-foreground font-semibold">24/7</span>{' '}
                 marrje fleksibël

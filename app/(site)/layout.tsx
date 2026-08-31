@@ -1,6 +1,7 @@
 import { getProfile, getUser } from '@/lib/auth/dal'
 import { SiteHeader } from '@/components/layout/site-header'
 import { SiteFooter } from '@/components/layout/site-footer'
+import { FloatingWhatsApp } from '@/components/layout/floating-whatsapp'
 
 /**
  * Shared shell for the public/customer + admin sections: the floating glass
@@ -30,6 +31,9 @@ export default async function SiteLayout({
       <main className="relative flex flex-1 flex-col">{children}</main>
 
       <SiteFooter />
+
+      {/* Mobile-only floating WhatsApp button — appears on scroll. */}
+      <FloatingWhatsApp />
 
       {/* Page-wide premium film grain. */}
       <div aria-hidden className="noise-overlay" />
