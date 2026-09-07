@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { MapPin, MessageCircle } from 'lucide-react'
+import { Clock, MapPin, MessageCircle, Navigation } from 'lucide-react'
 
 /* ── Footer — brand, contact, locations + links ────────────────────────── *
  * Mobile: a friendly, centered stack with a tappable green WhatsApp pill.
@@ -33,7 +33,7 @@ export function SiteFooter() {
           </p>
         </div>
 
-        {/* Contact — friendly WhatsApp pill */}
+        {/* Contact — WhatsApp pill + opening hours */}
         <div className="flex flex-col items-center gap-3 sm:items-start">
           <h3 className="text-sm font-semibold tracking-tight">Kontakt</h3>
           <a
@@ -45,17 +45,32 @@ export function SiteFooter() {
             <MessageCircle className="size-4 shrink-0" aria-hidden />
             +383 49 624 299
           </a>
+          <p className="text-muted-foreground flex items-start gap-2 text-sm">
+            <Clock className="mt-0.5 size-4 shrink-0" aria-hidden />
+            <span>
+              Hën–Sht: 08:00–20:00
+              <br />
+              Diel: 09:00–18:00
+            </span>
+          </p>
         </div>
 
-        {/* Locations */}
+        {/* Location */}
         <div className="flex flex-col items-center gap-3 sm:items-start">
-          <h3 className="text-sm font-semibold tracking-tight">Vendndodhjet</h3>
-          <ul className="text-muted-foreground flex flex-col gap-3 text-sm">
-            <li className="flex items-start justify-center gap-2 text-left sm:justify-start">
-              <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden />
-              Rrugë Brigada 123, Suharekë 23000
-            </li>
-          </ul>
+          <h3 className="text-sm font-semibold tracking-tight">Vendndodhja</h3>
+          <p className="text-muted-foreground flex items-start justify-center gap-2 text-left text-sm sm:justify-start">
+            <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden />
+            Rrugë Brigada 123, Suharekë 23000
+          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Suhareke"
+            target="_blank"
+            rel="noreferrer"
+            className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-sm transition-colors"
+          >
+            <Navigation className="size-4 shrink-0" aria-hidden />
+            Hap në Google Maps
+          </a>
         </div>
 
         {/* Links */}
@@ -68,16 +83,22 @@ export function SiteFooter() {
             Makinat
           </Link>
           <Link
-            href="/login"
+            href="/#si-funksionon"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors"
           >
-            Hyr
+            Si funksionon
           </Link>
           <Link
-            href="/register"
+            href="/#faq"
             className="text-muted-foreground hover:text-foreground text-sm transition-colors"
           >
-            Regjistrohu
+            Pyetje të shpeshta
+          </Link>
+          <Link
+            href="/#kontakt"
+            className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+          >
+            Kontakt
           </Link>
         </nav>
       </div>

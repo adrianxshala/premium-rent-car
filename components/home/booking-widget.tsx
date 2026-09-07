@@ -63,6 +63,7 @@ export function BookingWidget() {
           <Button
             type="submit"
             size="lg"
+            variant="brand"
             className="h-auto w-full rounded-[22px] px-9 py-4 text-base font-semibold sm:py-0"
           >
             <Search className="size-[1.15rem]" aria-hidden />

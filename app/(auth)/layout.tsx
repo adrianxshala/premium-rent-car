@@ -39,9 +39,6 @@ export default function AuthLayout({
       >
         ← Kthehu në ballinë
       </Link>
-
-      {/* Page-wide premium film grain. */}
-      <div aria-hidden className="noise-overlay" />
     </div>
   )
 }

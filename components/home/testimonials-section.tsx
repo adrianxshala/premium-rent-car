@@ -1,5 +1,3 @@
-'use client'
-
 import { Star } from 'lucide-react'
 
 import {
@@ -18,21 +16,24 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    quote: 'E gjeta veturën time për më pak se 2 ditë.',
+    quote:
+      'Rezervova online për pushimet dhe gjithçka ishte gati — marrja pa asnjë vonesë.',
     name: 'Ardit K.',
-    role: 'Blerës',
+    role: 'Suharekë',
     rating: 5,
   },
   {
-    quote: 'Procesi ishte i shpejtë dhe pa komplikime — rezervova online brenda pak minutash.',
+    quote:
+      'Vetura e pastër, çmim korrekt dhe komunikim i shpejtë në WhatsApp. E rekomandoj.',
     name: 'Elira M.',
-    role: 'Blerës',
+    role: 'Prizren',
     rating: 5,
   },
   {
-    quote: 'Vetura ishte pikërisht si në foto, e pastër dhe në gjendje perfekte.',
+    quote:
+      'Më duhej një makinë në minutën e fundit dhe e zgjidhën brenda ditës. Shërbim serioz.',
     name: 'Blerim S.',
-    role: 'Blerës',
+    role: 'Prishtinë',
     rating: 5,
   },
 ]
@@ -41,8 +42,19 @@ export function TestimonialsSection() {
   return (
     <section className="mx-auto w-full max-w-6xl px-6 py-16">
       <Reveal>
-        <SectionHead eyebrow="Vlerësime" title="Çfarë thonë blerësit tanë" />
+        <SectionHead eyebrow="Vlerësime" title="Çfarë thonë klientët tanë" />
       </Reveal>
+
+      <Reveal y={12} delay={0.05} className="mt-5">
+        <div className="inline-flex items-center gap-3 rounded-full bg-white px-4 py-2 ring-1 ring-black/[0.05]">
+          <Stars rating={5} />
+          <span className="text-sm">
+            <span className="text-foreground font-semibold">4.9/5</span>{' '}
+            <span className="text-muted-foreground">nga klientët tanë</span>
+          </span>
+        </div>
+      </Reveal>
+
       <StaggerGroup
         className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6"
         stagger={0.08}
@@ -58,7 +70,7 @@ export function TestimonialsSection() {
             <div className="mt-auto flex items-center gap-3">
               <span
                 aria-hidden
-                className="bg-secondary text-foreground flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold"
+                className="text-brand flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-sm font-semibold"
               >
                 {t.name.charAt(0)}
               </span>

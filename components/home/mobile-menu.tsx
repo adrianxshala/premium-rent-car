@@ -9,7 +9,18 @@ import {
   useReducedMotion,
   type Variants,
 } from 'motion/react'
-import { Car, LayoutDashboard, LogIn, LogOut, Menu, X } from 'lucide-react'
+import {
+  CalendarCheck,
+  Car,
+  HelpCircle,
+  LayoutDashboard,
+  LogIn,
+  LogOut,
+  MapPin,
+  Menu,
+  MessageCircle,
+  X,
+} from 'lucide-react'
 
 import { logout } from '@/app/(auth)/actions'
 import { cn } from '@/lib/utils'
@@ -20,6 +31,7 @@ type MenuLink = {
   label: string
   icon: React.ReactNode
   primary?: boolean
+  brand?: boolean
 }
 
 export type SessionUser = { name: string; role: 'user' | 'admin' }
@@ -45,6 +57,27 @@ export function MobileMenu({
 
   const links: MenuLink[] = [
     { href: '/cars', label: 'Makinat', icon: <Car className="size-5" /> },
+    {
+      href: '/#si-funksionon',
+      label: 'Si funksionon',
+      icon: <HelpCircle className="size-5" />,
+    },
+    {
+      href: '/#lokacioni',
+      label: 'Lokacioni',
+      icon: <MapPin className="size-5" />,
+    },
+    {
+      href: '/#kontakt',
+      label: 'Kontakt',
+      icon: <MessageCircle className="size-5" />,
+    },
+    {
+      href: '/cars',
+      label: 'Rezervo tani',
+      icon: <CalendarCheck className="size-5" />,
+      brand: true,
+    },
     ...(signedIn
       ? [
           {
@@ -256,15 +289,19 @@ function MenuRow({
         onClick={onNavigate}
         className={cn(
           'flex items-center gap-4 rounded-[20px] px-4 py-4 text-base font-medium transition-colors',
-          link.primary
-            ? 'bg-primary text-primary-foreground shadow-[0_8px_20px_rgba(20,20,30,0.18)]'
-            : 'text-foreground hover:bg-foreground/[0.05]',
+          link.brand
+            ? 'bg-brand text-brand-foreground shadow-[0_8px_20px_rgba(37,52,120,0.28)]'
+            : link.primary
+              ? 'bg-primary text-primary-foreground shadow-[0_8px_20px_rgba(20,20,30,0.18)]'
+              : 'text-foreground hover:bg-foreground/[0.05]',
         )}
       >
         <span
           className={cn(
             'flex size-10 shrink-0 items-center justify-center rounded-full',
-            link.primary ? 'bg-white/15' : 'bg-secondary text-muted-foreground',
+            link.brand || link.primary
+              ? 'bg-white/15'
+              : 'bg-secondary text-muted-foreground',
           )}
         >
           {link.icon}

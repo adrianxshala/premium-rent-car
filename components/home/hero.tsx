@@ -152,17 +152,9 @@ export function Hero({ signedIn }: { signedIn: boolean }) {
             className="absolute inset-x-2 -inset-y-6 -z-10 rounded-[40px] bg-gradient-to-tr from-indigo-300/25 via-white/0 to-emerald-200/25 blur-2xl"
           />
 
-          {/* Perpetual, almost-imperceptible float (≈5px) — kept on a separate
-              element from the entrance transform so they never fight. */}
-          <motion.div
-            animate={reduce ? undefined : { y: [0, -5, 0] }}
-            transition={
-              reduce
-                ? undefined
-                : { duration: 4.5, ease: 'easeInOut', repeat: Infinity }
-            }
-            className="shadow-float relative aspect-[4/3] overflow-hidden rounded-[28px] ring-1 ring-black/[0.06]"
-          >
+          {/* Static frame — the entrance transform above carries all the motion;
+              no perpetual loop (it caused continuous repaints / shimmer). */}
+          <div className="shadow-float relative aspect-[4/3] overflow-hidden rounded-[28px] ring-1 ring-black/[0.06]">
             <Image
               src={heroCar}
               alt="Veturë premium gati për rezervim"
@@ -182,7 +174,7 @@ export function Hero({ signedIn }: { signedIn: boolean }) {
               aria-hidden
               className="absolute inset-0 rounded-[28px] ring-1 ring-white/10 ring-inset"
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

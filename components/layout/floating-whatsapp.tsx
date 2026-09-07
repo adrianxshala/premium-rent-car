@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { usePathname } from 'next/navigation'
 
 import { cn } from '@/lib/utils'
 
@@ -13,6 +14,7 @@ const WHATSAPP_URL = 'https://wa.me/38349624299'
  * first load. Tapping opens a WhatsApp chat with the rental number.
  */
 export function FloatingWhatsApp() {
+  const pathname = usePathname()
   const [visible, setVisible] = React.useState(false)
 
   React.useEffect(() => {
@@ -21,6 +23,10 @@ export function FloatingWhatsApp() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // The homepage carries WhatsApp inside its mobile sticky CTA — don't stack a
+  // second floating button on top of it there.
+  if (pathname === '/') return null
 
   return (
     <a

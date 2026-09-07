@@ -19,11 +19,19 @@ export const metadata = {
 }
 
 type CarCategory = Enums<'car_category'>
+type FuelType = Enums<'fuel_type'>
 
 function isCategory(value: string | undefined): value is CarCategory {
   return (
     value !== undefined &&
     (Constants.public.Enums.car_category as readonly string[]).includes(value)
+  )
+}
+
+function isFuel(value: string | undefined): value is FuelType {
+  return (
+    value !== undefined &&
+    (Constants.public.Enums.fuel_type as readonly string[]).includes(value)
   )
 }
 
@@ -42,10 +50,16 @@ function isoDay(offset: number): string {
 export default async function CarsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string; from?: string; to?: string }>
+  searchParams: Promise<{
+    category?: string
+    fuel?: string
+    from?: string
+    to?: string
+  }>
 }) {
-  const { category, from, to } = await searchParams
+  const { category, fuel, from, to } = await searchParams
   const activeCategory = isCategory(category) ? category : undefined
+  const activeFuel = isFuel(fuel) ? fuel : undefined
 
   // Treat the date filter as active only when both ends are valid and ordered.
   const fromDate = parseISODate(from)
@@ -65,6 +79,7 @@ export default async function CarsPage({
     .order('created_at', { ascending: false })
 
   if (activeCategory) query = query.eq('category', activeCategory)
+  if (activeFuel) query = query.eq('fuel_type', activeFuel)
 
   const { data: allCars, error } = await query
 
@@ -132,7 +147,13 @@ export default async function CarsPage({
             {formatDate(dateRange.to)}
           </span>
           <Link
-            href={activeCategory ? `/cars?category=${activeCategory}` : '/cars'}
+            href={
+              activeCategory
+                ? `/cars?category=${activeCategory}`
+                : activeFuel
+                  ? `/cars?fuel=${activeFuel}`
+                  : '/cars'
+            }
             className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1 font-medium transition-colors"
           >
             <X className="size-3.5" aria-hidden />
@@ -148,7 +169,7 @@ export default async function CarsPage({
         >
           <FilterPill
             href={dateRange ? `/cars?${dateQuery.slice(1)}` : '/cars'}
-            active={!activeCategory}
+            active={!activeCategory && !activeFuel}
           >
             Të gjitha
           </FilterPill>
@@ -161,6 +182,12 @@ export default async function CarsPage({
               {CATEGORY_LABELS[cat]}
             </FilterPill>
           ))}
+          <FilterPill
+            href={`/cars?fuel=electric${dateQuery}`}
+            active={activeFuel === 'electric'}
+          >
+            Elektrike
+          </FilterPill>
         </nav>
       </Reveal>
 

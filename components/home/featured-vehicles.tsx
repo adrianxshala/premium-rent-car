@@ -60,7 +60,7 @@ export function FeaturedVehicles({ cars }: { cars: FeaturedCar[] }) {
     active === 'all' ? cars : cars.filter((c) => c.category === active)
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-16">
+    <section id="makinat" className="mx-auto w-full max-w-6xl scroll-mt-24 px-6 py-16">
       <Reveal>
         <SectionHead
           eyebrow="Flota"
@@ -94,7 +94,7 @@ export function FeaturedVehicles({ cars }: { cars: FeaturedCar[] }) {
                   {isActive && (
                     <motion.span
                       layoutId="featured-filter-pill"
-                      className="bg-primary absolute inset-0 rounded-full"
+                      className="bg-brand absolute inset-0 rounded-full"
                       transition={reduce ? { duration: 0 } : springGentle}
                     />
                   )}

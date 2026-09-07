@@ -34,9 +34,6 @@ export default async function SiteLayout({
 
       {/* Mobile-only floating WhatsApp button — appears on scroll. */}
       <FloatingWhatsApp />
-
-      {/* Page-wide premium film grain. */}
-      <div aria-hidden className="noise-overlay" />
     </div>
   )
 }

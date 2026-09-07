@@ -53,19 +53,45 @@ export function SiteHeader({
             RentCar <span className="text-muted-foreground">Leo</span>
           </span>
         </Link>
+
+        {/* Center anchor nav — scrolls to homepage sections from any page. */}
+        <nav className="text-muted-foreground absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 text-sm font-medium lg:flex">
+          <NavLink href="/cars">Makinat</NavLink>
+          <NavLink href="/#si-funksionon">Si funksionon</NavLink>
+          <NavLink href="/#lokacioni">Lokacioni</NavLink>
+          <NavLink href="/#kontakt">Kontakt</NavLink>
+        </nav>
+
         <nav className="hidden items-center gap-1.5 sm:flex">
           <Button asChild variant="ghost" className="rounded-full">
-            <Link href="/cars">Makinat</Link>
-          </Button>
-          <Button asChild className="rounded-full">
             <Link href={signedIn ? '/dashboard' : '/login'}>
               {signedIn ? 'Llogaria ime' : 'Hyr'}
             </Link>
+          </Button>
+          <Button asChild variant="brand" className="rounded-full">
+            <Link href="/cars">Rezervo tani</Link>
           </Button>
         </nav>
 
         <MobileMenu signedIn={signedIn} user={user} />
       </div>
     </header>
+  )
+}
+
+function NavLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  return (
+    <Link
+      href={href}
+      className="hover:text-foreground rounded-full px-3 py-2 transition-colors hover:bg-black/[0.04]"
+    >
+      {children}
+    </Link>
   )
 }

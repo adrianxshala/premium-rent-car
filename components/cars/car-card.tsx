@@ -91,7 +91,7 @@ export function CarCard({ car, dates, occupied = false }: CarCardProps) {
               / ditë
             </span>
           </p>
-          <p className="text-muted-foreground text-xs">Kapar 20% e totalit</p>
+          <p className="text-muted-foreground text-xs">pa parapagesë</p>
         </CardFooter>
       </Card>
     </Link>

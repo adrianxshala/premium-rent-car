@@ -1,5 +1,3 @@
-'use client'
-
 import { Car, ClipboardList, KeyRound } from 'lucide-react'
 
 import {
@@ -17,19 +15,22 @@ const STEPS = [
   },
   {
     icon: <ClipboardList className="size-5" aria-hidden />,
-    title: 'Plotëso të dhënat',
-    desc: 'Jep të dhënat e rezervimit dhe konfirmo detajet e udhëtimit.',
+    title: 'Rezervo online',
+    desc: 'Plotëso të dhënat dhe konfirmo rezervimin — pa parapagesë.',
   },
   {
     icon: <KeyRound className="size-5" aria-hidden />,
-    title: 'Merr çelësat',
-    desc: 'Vjen te pika e marrjes dhe nis udhëtimin — pa pritje.',
+    title: 'Merre dhe udhëto',
+    desc: 'Vjen te pika e marrjes, merr çelësat dhe nis rrugën — pa pritje.',
   },
 ] as const
 
 export function HowItWorksSection() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-16">
+    <section
+      id="si-funksionon"
+      className="mx-auto w-full max-w-6xl scroll-mt-24 px-6 py-16"
+    >
       <Reveal className="panel px-6 py-12 sm:px-10 sm:py-14">
         <SectionHead eyebrow="Si funksionon" title="Tre hapa deri te timoni" />
         <StaggerGroup
@@ -42,11 +43,11 @@ export function HowItWorksSection() {
               className="shadow-soft relative flex flex-col gap-4 rounded-[28px] bg-white p-7 ring-1 ring-black/[0.03]"
             >
               <div className="flex items-center justify-between">
-                <span className="bg-secondary text-foreground flex size-12 items-center justify-center rounded-2xl">
+                <span className="text-brand flex size-12 items-center justify-center rounded-2xl bg-brand-soft">
                   {step.icon}
                 </span>
-                <span className="text-4xl font-semibold text-black/[0.06]">
-                  {i + 1}
+                <span className="text-brand/15 text-4xl font-semibold">
+                  0{i + 1}
                 </span>
               </div>
               <div>

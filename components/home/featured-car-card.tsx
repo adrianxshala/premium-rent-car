@@ -76,9 +76,9 @@ export function FeaturedCarCard({ car }: { car: FeaturedCar }) {
             <h3 className="text-lg font-semibold tracking-tight">
               {car.make} {car.model}
             </h3>
-            <p className="text-muted-foreground text-sm">Kapar 20% e totalit</p>
+            <p className="text-muted-foreground text-sm">Çmim final, pa surpriza</p>
           </div>
-          <span className="bg-secondary text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground flex size-9 shrink-0 items-center justify-center rounded-full transition-colors">
+          <span className="bg-secondary text-muted-foreground group-hover:bg-brand group-hover:text-brand-foreground flex size-9 shrink-0 items-center justify-center rounded-full transition-colors">
             <ArrowUpRight className="size-4" aria-hidden />
           </span>
         </div>
