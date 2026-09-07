@@ -43,7 +43,7 @@ const CATEGORIES = [
 
 export function CategorySection() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-16">
+    <section className="mx-auto hidden w-full max-w-6xl px-6 py-16 sm:block">
       <Reveal>
         <SectionHead
           eyebrow="Kategoritë"

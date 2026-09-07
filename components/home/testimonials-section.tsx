@@ -6,6 +6,7 @@ import {
   StaggerItem,
 } from '@/components/motion/primitives'
 import { SectionHead } from '@/components/home/section-head'
+import { cn } from '@/lib/utils'
 
 type Testimonial = {
   quote: string
@@ -55,34 +56,65 @@ export function TestimonialsSection() {
         </div>
       </Reveal>
 
+      {/* Mobile: an endless horizontal ticker — cards drift by on their own,
+          no swipe needed, always in motion. Desktop: a plain three-up grid. */}
+      <Reveal y={16} delay={0.1} className="mt-8 sm:hidden">
+        <div className="marquee-fade -mx-6">
+          <div className="marquee-track flex w-max gap-4 px-6">
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+              <TestimonialCard
+                key={`${t.name}-${i}`}
+                t={t}
+                className="w-[78vw] max-w-xs shrink-0"
+              />
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
       <StaggerGroup
-        className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6"
+        className="mt-8 hidden sm:grid sm:grid-cols-3 sm:gap-6"
         stagger={0.08}
       >
         {TESTIMONIALS.map((t) => (
-          <StaggerItem
-            key={t.name}
-            lift={-4}
-            className="shadow-soft hover:shadow-float flex flex-col gap-5 rounded-[24px] bg-white p-6 ring-1 ring-black/[0.04] transition-[box-shadow] duration-300"
-          >
-            <Stars rating={t.rating} />
-            <p className="text-foreground text-pretty">“{t.quote}”</p>
-            <div className="mt-auto flex items-center gap-3">
-              <span
-                aria-hidden
-                className="text-brand flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-sm font-semibold"
-              >
-                {t.name.charAt(0)}
-              </span>
-              <div className="min-w-0">
-                <p className="font-semibold tracking-tight">{t.name}</p>
-                <p className="text-muted-foreground text-sm">{t.role}</p>
-              </div>
-            </div>
+          <StaggerItem key={t.name} lift={-4} className="h-full">
+            <TestimonialCard t={t} className="h-full" />
           </StaggerItem>
         ))}
       </StaggerGroup>
     </section>
+  )
+}
+
+function TestimonialCard({
+  t,
+  className,
+}: {
+  t: Testimonial
+  className?: string
+}) {
+  return (
+    <div
+      className={cn(
+        'shadow-soft hover:shadow-float flex flex-col gap-5 rounded-[24px] bg-white p-6 ring-1 ring-black/[0.04] transition-[box-shadow] duration-300',
+        className,
+      )}
+    >
+      <Stars rating={t.rating} />
+      <p className="text-foreground text-pretty">“{t.quote}”</p>
+      <div className="mt-auto flex items-center gap-3">
+        <span
+          aria-hidden
+          className="text-brand flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-soft text-sm font-semibold"
+        >
+          {t.name.charAt(0)}
+        </span>
+        <div className="min-w-0">
+          <p className="font-semibold tracking-tight">{t.name}</p>
+          <p className="text-muted-foreground text-sm">{t.role}</p>
+        </div>
+      </div>
+    </div>
   )
 }
 

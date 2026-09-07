@@ -266,4 +266,45 @@
       transparent
     );
   }
+
+  /* Endless horizontal ticker (mobile testimonials): the track holds the
+     content twice back-to-back and drifts left by exactly one copy's width,
+     looping seamlessly. Edges feather out via a mask so cards dissolve in
+     and out instead of cutting off hard. */
+  .marquee-fade {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent
+    );
+  }
+
+  .marquee-track {
+    animation: marquee-x 26s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

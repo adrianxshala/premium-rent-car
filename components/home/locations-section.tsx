@@ -26,14 +26,14 @@ export function LocationsSection() {
       <Reveal>
         <SectionHead
           eyebrow="Lokacioni"
-          title="Na gjen në Suharekë"
+          title="Na gjen në Suharekë-Prishtinë"
         />
       </Reveal>
 
       <Reveal y={20} delay={0.05} className="mt-8">
         <div className="shadow-soft grid overflow-hidden rounded-[32px] bg-white ring-1 ring-black/[0.04] lg:grid-cols-2">
           {/* ── Left: the practical details ─────────────────────────────── */}
-          <div className="flex flex-col gap-7 p-7 sm:p-10">
+          <div className="flex flex-col gap-6 p-6 sm:gap-7 sm:p-10">
             <p className="text-muted-foreground max-w-md text-pretty">
               Marrja e veturës bëhet shpejt dhe pa komplikime. Na kontakto dhe e
               organizojmë bashkë marrjen te zyra jonë ose te vendi që të
@@ -63,12 +63,12 @@ export function LocationsSection() {
               marrëvesh me ne paraprakisht.
             </InfoRow>
 
-            <div className="mt-1 flex flex-wrap gap-3">
+            <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="shadow-soft inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-600"
+                className="shadow-soft inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-600 sm:justify-start sm:py-2.5"
               >
                 <MessageCircle className="size-4" aria-hidden />
                 Na kontakto në WhatsApp
@@ -77,7 +77,7 @@ export function LocationsSection() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold ring-1 ring-black/[0.1] transition-colors hover:bg-black/[0.03]"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold ring-1 ring-black/[0.1] transition-colors hover:bg-black/[0.03] sm:justify-start sm:py-2.5"
               >
                 <Navigation className="size-4" aria-hidden />
                 Hap në Maps

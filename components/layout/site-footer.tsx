@@ -23,9 +23,9 @@ export function SiteFooter() {
               aria-hidden
               className="bg-foreground text-background flex size-8 items-center justify-center rounded-full text-sm font-semibold"
             >
-              L
+              P
             </span>
-            RentCar <span className="text-muted-foreground">Leo</span>
+            RentCar <span className="text-muted-foreground">Promo</span>
           </Link>
           <p className="text-muted-foreground max-w-xs text-sm text-balance">
             Vetura premium për çdo udhëtim — rezervo online, shpejt e pa
@@ -104,7 +104,7 @@ export function SiteFooter() {
       </div>
 
       <div className="text-muted-foreground mt-10 flex flex-col items-center gap-3 border-t border-black/[0.06] pt-6 text-sm sm:flex-row sm:justify-between">
-        <p>© 2026 RentCar Leo</p>
+        <p>© 2026 RentCar Promo</p>
 
         <div className="flex items-center gap-2.5">
           <span>

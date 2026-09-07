@@ -11,7 +11,7 @@ import {
   type DateRange,
 } from '@/components/home/booking-calendar'
 
-const LOCATION = 'Suharekë'
+const LOCATION = 'Suharekë-Prishtinë'
 
 /** 'YYYY-MM-DD' for a Date, using its local calendar day. */
 function toISODate(date: Date): string {

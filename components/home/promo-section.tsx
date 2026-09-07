@@ -16,7 +16,7 @@ const PERKS = [
   },
   {
     icon: <MapPin className="size-4" aria-hidden />,
-    label: 'Marrje & dorëzim në Suharekë pa pagesë',
+    label: 'Marrje & dorëzim në Suharekë-Prishtinë pa pagesë',
   },
   {
     icon: <ShieldCheck className="size-4" aria-hidden />,

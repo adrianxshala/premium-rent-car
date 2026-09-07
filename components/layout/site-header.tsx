@@ -47,10 +47,10 @@ export function SiteHeader({
             aria-hidden
             className="bg-foreground text-background flex size-9 items-center justify-center rounded-full text-lg font-semibold sm:size-10"
           >
-            L
+            P
           </span>
           <span className="text-base">
-            RentCar <span className="text-muted-foreground">Leo</span>
+            RentCar <span className="text-muted-foreground">Promo</span>
           </span>
         </Link>
 

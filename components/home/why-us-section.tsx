@@ -49,10 +49,10 @@ const REASONS = [
 
 export function WhyUsSection() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-16">
+    <section className="mx-auto hidden w-full max-w-6xl px-6 py-16 sm:block">
       <Reveal>
         <SectionHead
-          eyebrow="Pse RentCar Leo"
+          eyebrow="Pse RentCar Promo"
           title="Përvojë qiraje pa stres"
         />
       </Reveal>

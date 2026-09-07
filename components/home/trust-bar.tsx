@@ -39,9 +39,9 @@ const ITEMS = [
 
 export function TrustBar() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6">
+    <section className="mx-auto hidden w-full max-w-6xl px-6 sm:block">
       <Reveal y={16}>
-        <div className="shadow-soft grid grid-cols-2 gap-x-4 gap-y-5 rounded-[24px] bg-white px-6 py-5 ring-1 ring-black/[0.05] sm:flex sm:items-center sm:justify-between sm:gap-2 sm:px-8">
+        <div className="shadow-soft flex items-center justify-between gap-2 rounded-[24px] bg-white px-8 py-5 ring-1 ring-black/[0.05]">
           {ITEMS.map((item, i) => (
             <div key={item.label} className="flex items-center gap-3">
               <TrustItem {...item} />

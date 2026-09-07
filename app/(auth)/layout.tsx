@@ -24,10 +24,10 @@ export default function AuthLayout({
           aria-hidden
           className="bg-foreground text-background flex size-10 items-center justify-center rounded-full text-lg font-semibold"
         >
-          L
+          P
         </span>
         <span className="text-lg">
-          RentCar <span className="text-muted-foreground">Leo</span>
+          RentCar <span className="text-muted-foreground">Promo</span>
         </span>
       </Link>
 
